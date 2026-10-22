@@ -1,0 +1,6 @@
+project_id = "miaoge-site"
+
+[functions.github-publish]
+# The handler verifies the user with Supabase Auth on every request. Disabling
+# the legacy gateway JWT check also supports new publishable keys and JWT keys.
+verify_jwt = false

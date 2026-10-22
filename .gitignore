@@ -5,3 +5,8 @@ node_modules/
 *.json.tmp
 miaoge-diary-*.json
 *.log
+.env
+.env.*
+.dev.vars
+supabase/.temp/
+supabase/.branches/

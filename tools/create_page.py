@@ -24,6 +24,7 @@ def page(title, description, url, noindex=False):
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f7f1">
+  <meta name="referrer" content="same-origin">
   <title>{escape(title)}</title>
   <meta name="description" content="{escape(description, quote=True)}">
   <meta property="og:type" content="website">
@@ -35,10 +36,14 @@ def page(title, description, url, noindex=False):
   <link rel="icon" type="image/svg+xml" href="/assets/cat.svg">
   <link rel="stylesheet" href="{asset('/assets/tokens.css')}">
   <link rel="stylesheet" href="{asset('/assets/style.css')}">
+  <link rel="stylesheet" href="{asset('/assets/admin.css')}">
   <link rel="stylesheet" href="{asset('/assets/vendor/highlight.css')}">
   <script defer src="{asset('/assets/vendor/marked.js')}"></script>
   <script defer src="{asset('/assets/vendor/purify.js')}"></script>
   <script defer src="{asset('/assets/vendor/highlight.js')}"></script>
+  <script defer src="{asset('/assets/vendor/supabase.js')}"></script>
+  <script defer src="{asset('/assets/auth.js')}"></script>
+  <script defer src="{asset('/assets/writing.js')}"></script>
   <script defer src="{asset('/assets/app.js')}"></script>
 </head>
 <body>
@@ -61,6 +66,7 @@ def main():
         ('/blog/', '技术博客 · 喵个喵', '记录实践的过程，整理技术笔记与工具使用方法。'),
         ('/collection/', '拾光集 · 喵个喵', '项目、书影音和好用的工具，把喜欢一点点收集。'),
         ('/about/', '关于 · 喵个喵', '你好，我是喵个喵。欢迎来到这个持续生长的个人小站。'),
+        ('/admin/', '站主管理 · 喵个喵', '使用 GitHub 登录，直接发布公开日记。'),
     ]
     posts = json.loads((ROOT / 'data/posts.json').read_text(encoding='utf-8'))
     seen = set()
@@ -77,9 +83,9 @@ def main():
     for url, title, description in pages:
         destination = ROOT / url.strip('/') / 'index.html'
         destination.parent.mkdir(parents=True, exist_ok=True)
-        destination.write_text(page(title, description, url, noindex=url == '/diary/write/'), encoding='utf-8')
+        destination.write_text(page(title, description, url, noindex=url in ('/diary/write/', '/admin/')), encoding='utf-8')
     (ROOT / '404.html').write_text(page('页面未找到 · 喵个喵', '这条小路，暂时还没有通向哪里。', '/404.html', True), encoding='utf-8')
-    urls = ''.join(f'<url><loc>{xml_escape(DOMAIN + url)}</loc></url>\n' for url, _, _ in pages if url != '/diary/write/')
+    urls = ''.join(f'<url><loc>{xml_escape(DOMAIN + url)}</loc></url>\n' for url, _, _ in pages if url not in ('/diary/write/', '/admin/'))
     (ROOT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n', encoding='utf-8')
     print(f'生成 {len(pages)} 个页面入口及 404、sitemap.xml')
 
