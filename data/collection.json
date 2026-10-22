@@ -1,0 +1,4 @@
+[
+  {"id":"this-site","title":"喵个喵的个人小站","category":"项目","description":"一个存放日常、技术笔记和零散好奇的地方。使用 GitHub Pages 部署，持续慢慢更新。","url":"https://github.com/Ciscochen17/Ciscochen17.github.io","label":"查看源代码","cover":"project","date":"2026-10-22"},
+  {"id":"github-pages-docs","title":"GitHub Pages 官方文档","category":"收藏","description":"关于静态网站发布、自定义域名和 HTTPS 的官方指南。搭建这个小站时用到的参考资料。","url":"https://docs.github.com/en/pages","label":"打开文档","cover":"resource","date":"2026-10-22"}
+]

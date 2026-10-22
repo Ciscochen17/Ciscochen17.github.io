@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "building-this-site",
+    "title": "从一个域名开始，搭建自己的小站",
+    "excerpt": "域名、GitHub Pages、DNS 与 HTTPS：记录 miaogemiao.xin 从一个地址变成一个网站的过程。",
+    "category": "建站笔记",
+    "tags": [
+      "GitHub Pages",
+      "DNS"
+    ],
+    "date": "2026-10-22",
+    "updated": "2026-10-22",
+    "file": "/content/blog/building-this-site.md",
+    "wordCount": 1470
+  },
+  {
+    "slug": "markdown-notes",
+    "title": "用 Markdown，让记录回到文字本身",
+    "excerpt": "从标题、列表到代码块，一份可以随时翻阅的 Markdown 书写指南，也是这个小站的写作方式。",
+    "category": "工具与方法",
+    "tags": [
+      "Markdown",
+      "写作"
+    ],
+    "date": "2026-10-22",
+    "updated": "2026-10-22",
+    "file": "/content/blog/markdown-notes.md",
+    "wordCount": 1049
+  }
+]

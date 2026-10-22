@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /diary/write/
+
+Sitemap: https://miaogemiao.xin/sitemap.xml
